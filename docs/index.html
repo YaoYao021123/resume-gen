@@ -81,21 +81,11 @@ body {
   gap: 12px;
 }
 .sidebar-brand { min-width: 0; flex: 1; }
-.brand-logo-mark {
-  width: 38px;
-  height: 38px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text);
-  background: var(--surface);
-  font-family: var(--font-heading);
-  font-size: 21px;
-  font-weight: 700;
-  letter-spacing: 0;
-  line-height: 1;
+.brand-logo {
+  display: block;
+  width: 132px;
+  max-width: 100%;
+  height: auto;
 }
 .sidebar-header h1 {
   font-family: var(--font-heading);
@@ -4050,6 +4040,7 @@ select { cursor: pointer; font-family: var(--font-heading); font-size: 13px; }
   .sidebar-header .btn-manage,
   .person-selector,
   .progress-section,
+  .brand-logo,
   .sidebar-header h1,
   .sidebar-header p,
   .progress-label,
@@ -4243,7 +4234,7 @@ select.app-edit-input { cursor: pointer; }
   <aside class="sidebar">
     <div class="sidebar-header">
       <div class="sidebar-brand">
-        <div class="brand-logo-mark" aria-label="Resume Gen">R</div>
+        <img class="brand-logo" src="assets/resumegen-logo.png" alt="ResumeGen">
         <p>简历数据管理</p>
       </div>
       <button class="btn-manage" onclick="showModelConfigDialog()" title="模型配置">
@@ -4839,7 +4830,7 @@ select.app-edit-input { cursor: pointer; }
         </div>
         <div class="form-row form-row-wide"><label>外语水平</label>
           <div class="tag-input-wrap" id="tags-languages" onclick="this.querySelector('.tag-input-field').focus()">
-            <input class="tag-input-field" data-tag-category="languages" placeholder="如 英语 IELTS 7.5, 日语 N2...">
+            <input class="tag-input-field" data-tag-category="languages" placeholder="如 英语 C1, 日语 N2...">
           </div>
         </div>
       </div>
@@ -11288,12 +11279,12 @@ async function fetchAppResumeContent(dirName) {
       website: 'zoelin.example.com'
     },
     education: [
-      { school: '香港大学', degree: '硕士', major: '金融科技', department: 'Faculty of Business and Economics', time_start: '2025/08', time_end: '2026/07', gpa: '3.8/4.0' },
-      { school: '上海大学', degree: '本科', major: '金融学', department: '经济学院', time_start: '2021/09', time_end: '2025/07', gpa: '3.7/4.0' }
+      { school: '岭南科技大学', degree: '硕士', major: '智能系统与金融科技', department: 'School of Digital Business', time_start: '2025/08', time_end: '2026/07', gpa: '3.6/4.0' },
+      { school: '东海财经学院', degree: '本科', major: '数据金融', department: '经济与数据学院', time_start: '2021/09', time_end: '2025/07', gpa: '3.7/4.0' }
     ],
     awards: [
-      { name: 'MCM Meritorious Winner', issuer: 'COMAP', date: '2024/05' },
-      { name: '全国大学生数学竞赛二等奖', issuer: '中国数学会', date: '2022/12' }
+      { name: '商业数据分析挑战赛二等奖', issuer: '城市商业研究联盟', date: '2024/05' },
+      { name: 'AI 产品设计赛优胜奖', issuer: '校园创新实验室', date: '2023/12' }
     ],
     projects: [
       {
@@ -11320,7 +11311,7 @@ async function fetchAppResumeContent(dirName) {
     skills: {
       tech: 'Python, SQL, JavaScript, TypeScript, HTML/CSS, LaTeX, Selenium',
       software: 'Cursor, Codex, Claude Code, Figma, Excel, PowerPoint, Visio',
-      languages: '中文, English IELTS 8.0'
+      languages: '中文, English C1'
     },
     directions: {
       primary: 'AI 产品经理 / AI Agent 应用',
@@ -11421,7 +11412,7 @@ async function fetchAppResumeContent(dirName) {
   const demoLatex = String.raw`\name{林知夏}
 \contactInfo{zoe.lin@example.com}{13800008888}
 \section{教育背景}
-\datedsubsection{香港大学 · 金融科技硕士}{2025/08 -- 2026/07}
+\datedsubsection{岭南科技大学 · 智能系统与金融科技硕士}{2025/08 -- 2026/07}
 \section{实习经历}
 \datedsubsection{智启科技 · AI 产品经理实习生}{2026/03 -- 2026/06}
 \item 拆解 AI Agent 工作流需求，沉淀 Prompt、工具调用和反馈复核标准
@@ -11469,7 +11460,7 @@ async function fetchAppResumeContent(dirName) {
     ],
     candidate_campus_experiences: [],
     candidate_awards: [
-      { selected: true, name: 'MCM Meritorious Winner', time: '2024/05' }
+      { selected: true, name: '商业数据分析挑战赛二等奖', time: '2024/05' }
     ]
   };
 
@@ -11582,10 +11573,10 @@ async function fetchAppResumeContent(dirName) {
     </style></head><body><main class="page">
       <h1>林知夏 Zoe Lin</h1><div class="meta">zoe.lin@example.com · 13800008888 · 上海 · ${title}</div>
       <h2>教育背景 <span class="fill">填充率 95%</span></h2>
-      <div class="row"><span>香港大学 · 金融科技硕士</span><span>2025/08 - 2026/07</span></div>
-      <div class="course">主修：机器学习与人工智能、深度学习、金融数学、量化交易、数据产品设计</div>
-      <div class="row" style="margin-top:7px"><span>上海大学 · 金融学本科</span><span>2021/09 - 2025/07</span></div>
-      <div class="course">GPA 3.8/4.0，排名前 10%；课程：Python 金融数据分析、计量经济学、线性代数</div>
+      <div class="row"><span>岭南科技大学 · 智能系统与金融科技硕士</span><span>2025/08 - 2026/07</span></div>
+      <div class="course">主修：机器学习与人工智能、数据产品设计、金融数据工程、量化研究方法、用户增长分析</div>
+      <div class="row" style="margin-top:7px"><span>东海财经学院 · 数据金融本科</span><span>2021/09 - 2025/07</span></div>
+      <div class="course">GPA 3.7/4.0；课程：Python 数据分析、统计建模、数据库系统、公司金融、产品数据分析</div>
 
       <h2>实习经历</h2>
       <div class="row"><span>智启科技 · AI 产品经理实习生</span><span>2026/03 - 2026/06</span></div>
@@ -11607,7 +11598,7 @@ async function fetchAppResumeContent(dirName) {
       <ul class="dense"><li>围绕 AI 简历、Agent 工具和数据产品场景拆解竞品路径，整理功能矩阵、用户任务和差异化定位</li><li>输出 12 页产品复盘材料，覆盖目标用户、核心流程、失败状态、质量指标和后续版本路线</li><li>将“生成结果是否可投递”拆解为单页、填充率、视觉层级、事实一致性和版本留存 5 类检查项</li></ul>
 
       <h2>获奖与技能</h2>
-      <ul class="two dense"><li>MCM Meritorious Winner</li><li>全国大学生数学竞赛二等奖</li><li>上海大学学业优秀奖学金</li><li>IELTS 8.0 / CET6 631</li></ul>
+      <ul class="two dense"><li>商业数据分析挑战赛二等奖</li><li>AI 产品设计赛优胜奖</li><li>数据建模课程项目优秀作品</li><li>English C1</li></ul>
       <div style="margin-top:7px"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">AI Agent</span><span class="tag">LaTeX</span><span class="tag">数据分析</span><span class="tag">产品需求</span><span class="tag">视觉 QA</span><span class="tag">Figma</span></div>
     </main></body></html>`;
   }

@@ -11328,22 +11328,22 @@ async function fetchAppResumeContent(dirName) {
       pdf_path: 'demo_智启科技_AI产品经理实习生_20260614/resume-zh_CN.pdf',
       output_dir: 'demo_智启科技_AI产品经理实习生_20260614',
       version_count: 4,
-      fill_label: '98%',
+      fill_label: '95%',
       page_count: 1,
       jd_excerpt: '负责 AI Agent 产品需求拆解、Prompt 工作流设计、用户反馈分析和跨团队推进',
       interview_excerpt: '重点关注候选人是否能把模型能力转化为可落地产品流程',
-      visual_review: { status: 'pass', fill_ratio: 0.982, message: '单页、留白和信息密度均衡', issues: [] },
+      visual_review: { status: 'pass', fill_ratio: 0.952, message: '单页、留白和信息密度均衡', issues: [] },
       quality_report: {
         status: 'ready',
         label: '可投递',
         summary: '单页 PDF、填充率和视觉结构已通过演示复核',
         next_action: '查看 PDF 后投递',
-        fill_label: '98%',
+        fill_label: '95%',
         page_count: 1,
         version_count: 4,
         checks: [
           { label: '单页', status: 'pass', detail: '输出为 1 页' },
-          { label: '填充率', status: 'pass', detail: '页面填充率约 98%' },
+          { label: '填充率', status: 'pass', detail: '页面填充率约 95%' },
           { label: '视觉层级', status: 'pass', detail: '标题、经历和项目区块层级清晰' }
         ]
       },
@@ -11562,21 +11562,44 @@ async function fetchAppResumeContent(dirName) {
 
   function demoResumeHtml(title = '智启科技 — AI 产品经理实习生') {
     return `<!doctype html><html><head><meta charset="utf-8"><style>
+      *,*::before,*::after{box-sizing:border-box}
       body{margin:0;background:#f7f3ef;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#171717}
-      .page{width:760px;min-height:1060px;margin:24px auto;background:#fff;padding:44px 52px;box-shadow:0 12px 36px rgba(40,30,24,.14)}
-      h1{font-size:30px;text-align:center;margin:0 0 8px;font-family:Georgia,serif} .meta{text-align:center;color:#6f6a63;font-size:13px;margin-bottom:22px}
-      h2{font-size:16px;border-bottom:1px solid #222;margin:18px 0 10px;padding-bottom:4px}.row{display:flex;justify-content:space-between;font-weight:700}
-      ul{margin:8px 0 0 18px;padding:0;line-height:1.55;font-size:14px}.tag{display:inline-block;border:1px solid #eaded5;border-radius:999px;padding:4px 8px;margin:4px 4px 0 0;color:#9f523b;background:#fbf8f5;font-size:12px}
+      .page{width:760px;height:1060px;margin:24px auto;background:#fff;padding:36px 48px;box-shadow:0 12px 36px rgba(40,30,24,.14);overflow:hidden}
+      h1{font-size:29px;text-align:center;margin:0 0 6px;font-family:Georgia,serif}.meta{text-align:center;color:#6f6a63;font-size:12.5px;margin-bottom:17px}
+      h2{font-size:15px;border-bottom:1px solid #222;margin:13px 0 8px;padding-bottom:3px}.row{display:flex;justify-content:space-between;gap:18px;font-weight:700;font-size:14.5px}.row span:last-child{white-space:nowrap}
+      .sub{font-size:12.2px;color:#6f6a63;margin-top:2px}.course{font-size:12.2px;color:#4d4a45;margin-top:5px}
+      ul{margin:6px 0 0 18px;padding:0;line-height:1.42;font-size:13.2px}.two{display:grid;grid-template-columns:1fr 1fr;gap:4px 22px}.dense li{margin-bottom:1px}
+      .tag{display:inline-block;border:1px solid #eaded5;border-radius:999px;padding:3px 8px;margin:4px 4px 0 0;color:#9f523b;background:#fbf8f5;font-size:11.5px}.fill{float:right;color:#9f523b;font-size:12px;font-weight:700}
     </style></head><body><main class="page">
-      <h1>林知夏 Zoe Lin</h1><div class="meta">zoe.lin@example.com · 13800008888 · ${title}</div>
-      <h2>教育背景</h2><div class="row"><span>香港大学 · 金融科技硕士</span><span>2025/08 - 2026/07</span></div>
-      <h2>实习经历</h2><div class="row"><span>智启科技 · AI 产品经理实习生</span><span>2026/03 - 2026/06</span></div>
-      <ul><li>拆解 AI Agent 工作流需求，沉淀 Prompt、工具调用和反馈复核标准</li><li>基于用户反馈梳理高频问题，推动生成入口和质量检查流程优化</li></ul>
-      <div class="row" style="margin-top:14px"><span>云图智能 · 数据产品实习生</span><span>2025/10 - 2026/02</span></div>
-      <ul><li>整理产品使用数据和用户反馈，输出指标看板与版本复盘材料</li><li>协助产品经理拆解增长路径，形成需求优先级建议</li></ul>
-      <h2>项目经历</h2><div class="row"><span>Resume Gen · AI 简历生成系统</span><span>2026/04 - 2026/06</span></div>
-      <ul><li>搭建 JD 匹配、LaTeX 渲染、视觉 QA 和版本留存的一体化流程</li></ul>
-      <h2>技能</h2><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">AI Agent</span><span class="tag">LaTeX</span><span class="tag">数据分析</span>
+      <h1>林知夏 Zoe Lin</h1><div class="meta">zoe.lin@example.com · 13800008888 · 上海 · ${title}</div>
+      <h2>教育背景 <span class="fill">填充率 95%</span></h2>
+      <div class="row"><span>香港大学 · 金融科技硕士</span><span>2025/08 - 2026/07</span></div>
+      <div class="course">主修：机器学习与人工智能、深度学习、金融数学、量化交易、数据产品设计</div>
+      <div class="row" style="margin-top:7px"><span>上海大学 · 金融学本科</span><span>2021/09 - 2025/07</span></div>
+      <div class="course">GPA 3.8/4.0，排名前 10%；课程：Python 金融数据分析、计量经济学、线性代数</div>
+
+      <h2>实习经历</h2>
+      <div class="row"><span>智启科技 · AI 产品经理实习生</span><span>2026/03 - 2026/06</span></div>
+      <ul class="dense"><li>拆解 AI Agent 工作流需求，沉淀 Prompt、工具调用、状态恢复和反馈复核标准，形成 18 页产品方案</li><li>梳理用户从 JD 输入、经历匹配到 PDF 预览的关键路径，推动生成入口、最近生成和版本留存体验优化</li><li>基于 60+ 条用户反馈归因高频问题，将“内容生成-视觉检查-反馈改写”整理为可复用闭环流程</li></ul>
+      <div class="row" style="margin-top:10px"><span>云图智能 · 数据产品实习生</span><span>2025/10 - 2026/02</span></div>
+      <ul class="dense"><li>整理产品使用数据、客服记录和埋点口径，输出指标看板、版本复盘材料和需求优先级建议</li><li>协助产品经理拆解增长路径，围绕激活、留存和转化建立指标口径，支持 3 次版本评审</li><li>使用 SQL 和 Python 清洗样本数据，校验异常值、缺失字段和重复记录，减少人工核对成本</li></ul>
+      <div class="row" style="margin-top:10px"><span>远航资本 · 商品研究助理</span><span>2025/06 - 2025/09</span></div>
+      <ul class="dense"><li>收集能源、金属和农产品产业链数据，按供需、库存、价格和政策变量整理研究底表</li><li>参与撰写周度商品跟踪简报，将外部新闻、企业公告和价格数据转化为可复核的研究假设</li></ul>
+
+      <h2>AI 项目经历</h2>
+      <div class="row"><span>Resume Gen · AI 简历生成系统</span><span>2026/04 - 2026/06</span></div>
+      <ul class="dense"><li>搭建 JD 匹配、经历筛选、LaTeX 渲染、视觉 QA 和版本留存的一体化流程，支持本地与静态演示模式</li><li>设计 mock API 与演示数据，使无后端环境下仍能展示最近生成、画廊、PDF 预览和生成页交互</li></ul>
+      <div class="row" style="margin-top:10px"><span>Editable HTML Slides · AI 演示稿工具</span><span>2026/03 - 2026/05</span></div>
+      <ul class="dense"><li>设计单文件 HTML 幻灯片生成流程，支持内容结构化、画面比例固定和浏览器端编辑预览</li><li>引入截图检查规则，定位文字溢出、首屏层级和组件间距问题，提升交付前视觉稳定性</li></ul>
+      <div class="row" style="margin-top:10px"><span>Agent Pet · 桌面 Agent 状态应用</span><span>2026/02 - 2026/04</span></div>
+      <ul class="dense"><li>基于 Electron 与 TypeScript 搭建桌面应用，设计本地 hook、状态可视化和通知反馈流程</li></ul>
+
+      <h2>研究与交付产出</h2>
+      <ul class="dense"><li>围绕 AI 简历、Agent 工具和数据产品场景拆解竞品路径，整理功能矩阵、用户任务和差异化定位</li><li>输出 12 页产品复盘材料，覆盖目标用户、核心流程、失败状态、质量指标和后续版本路线</li><li>将“生成结果是否可投递”拆解为单页、填充率、视觉层级、事实一致性和版本留存 5 类检查项</li></ul>
+
+      <h2>获奖与技能</h2>
+      <ul class="two dense"><li>MCM Meritorious Winner</li><li>全国大学生数学竞赛二等奖</li><li>上海大学学业优秀奖学金</li><li>IELTS 8.0 / CET6 631</li></ul>
+      <div style="margin-top:7px"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">AI Agent</span><span class="tag">LaTeX</span><span class="tag">数据分析</span><span class="tag">产品需求</span><span class="tag">视觉 QA</span><span class="tag">Figma</span></div>
     </main></body></html>`;
   }
 
